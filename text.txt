@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBD Dosage Calculator for Anxiety Relief</title>
+  <meta name="description" content="Find your ideal CBD dosage for anxiety based on your weight and anxiety level. Free CBD dosage calculator with affiliate recommendations.">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f8f5;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #2b8a3e;
+    }
+    .calculator {
+      background: #fff;
+      max-width: 450px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #2b8a3e;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #256f34;
+    }
+    .result {
+      margin-top: 25px;
+      padding: 15px;
+      background: #e6f7ed;
+      border-radius: 8px;
+    }
+    a.btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #2b8a3e;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    a.btn:hover {
+      background: #256f34;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CBD Dosage Calculator for Anxiety Relief</h1>
+  <p>Use this free tool to find your optimal daily CBD dosage based on your weight and anxiety level.</p>
+
+  <div class="calculator">
+    <label for="weight">Weight (lbs):</label>
+    <input type="number" id="weight" placeholder="e.g. 150">
+
+    <label for="level">Anxiety Level:</label>
+    <select id="level">
+      <option value="mild">Mild</option>
+      <option value="moderate">Moderate</option>
+      <option value="severe">Severe</option>
+    </select>
+
+    <label for="strength">CBD Oil Strength (mg per bottle):</label>
+    <input type="number" id="strength" placeholder="e.g. 600">
+
+    <button onclick="calculateDosage()">Calculate Dosage</button>
+
+    <div id="result" class="result" style="display:none;"></div>
+  </div>
+
+  <script>
+    function calculateDosage() {
+      const weight = parseFloat(document.getElementById('weight').value);
+      const level = document.getElementById('level').value;
+      const strength = parseFloat(document.getElementById('strength').value);
+
+      if (!weight || !strength) {
+        alert('Please enter all fields.');
+        return;
+      }
+
+      let mgPerLb;
+      if (level === 'mild') mgPerLb = 0.1;
+      else if (level === 'moderate') mgPerLb = 0.25;
+      else mgPerLb = 0.45;
+
+      const dailyMg = (weight * mgPerLb).toFixed(2);
+      const perDose = (dailyMg / 2).toFixed(2); // 2 doses per day
+
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('result').innerHTML = `
+        <h3>Your Recommended Dosage</h3>
+        <p><strong>${dailyMg} mg/day</strong> total or <strong>${perDose} mg</strong> twice daily.</p>
+        <p>Based on your input, we recommend:</p>
+        <a href="https://a5059hsztdyfwzr4vix65mhu6g.hop.clickbank.net" target="_blank" class="btn">
+          Buy CBDPure 600mg Oil 🌿
+        </a>
+        <p style="font-size:13px;margin-top:10px;">*Always consult your doctor before starting any new supplement regimen.</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
